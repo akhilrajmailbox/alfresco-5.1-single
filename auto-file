@@ -1,0 +1,35 @@
+
+mode=unattended
+enable-components=javaalfresco,alfrescowcmqs,libreofficecomponent
+disable-components=postgres
+
+
+# Use JDBC settings for an existing database
+#for mysql
+
+jdbc_url=jdbc:mysql://192.168.1.234:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8
+jdbc_driver=org.gjt.mm.mysql.Driver
+jdbc_database=alfresco
+jdbc_username=alfresco
+jdbc_password=alfresco
+
+
+#for postgresql
+
+# Use JDBC settings for an existing database
+#jdbc_url=jdbc:postgresql://localhost/alfresco
+#jdbc_driver=org.postgresql.Driver
+#jdbc_database=alfresco
+#jdbc_username=alfresco
+#jdbc_password=alfresco
+
+########################################################################
+
+# Install location & change this if use clustering
+
+prefix=/opt/alfresco-community
+
+alfresco_admin_password=admin
+
+# Don't install init scripts
+baseunixservice_install_as_service=0
