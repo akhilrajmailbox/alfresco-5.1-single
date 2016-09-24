@@ -1,0 +1,14 @@
+
+
+##################################################################################################
+############################  alfresco-global.properties  ########################################
+##################################################################################################
+
+authentication.chain=alfrescoNtlm1:alfrescoNtlm,ldap1:ldap
+
+#ldap auth only can done with following (no alfrsco admin can login)
+#authentication.chain=ldap1:ldap
+
+synchronization.synchronizeChangesOnly=true
+synchronization.syncWhenMissingPeopleLogIn=true
+synchronization.syncOnStartup=true
