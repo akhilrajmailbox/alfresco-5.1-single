@@ -1,0 +1,119 @@
+
+
+alfresco-video links and concept links
+
+ #this available on alfresco 5.x https://wiki.alfresco.com/wiki/Multi-Tenancy
+ #this is document of alfresco 4.x
+ #we need same thing on 5.x
+ 
+
+ http://docs.alfresco.com/4.1/concepts/auth-passthru-domainprops.html
+ 
+ #ok I think it works in 5.0.a , 5.0.b have issues
+ #below are some links and videos
+ 
+ http://docs.alfresco.com/5.0/concepts/mt-intro.html
+ http://docs.alfresco.com/5.0/concepts/mt-implement.html
+ http://www.giuseppeurso.eu/en/alfresco-tips-and-tricks-7-multi-tenancy/
+ http://ecmarchitect.com/archives/2014/11/06/3962
+ http://blog.tsgrp.com/2012/05/10/experiences-with-alfresco-multi-tenancy/
+ https://www.youtube.com/watch?v=Xsf79lD0vf4
+ https://www.youtube.com/watch?v=eo8lu6eLVpw
+ https://www.youtube.com/watch?v=C6kWAFDWOao
+ https://www.youtube.com/watch?v=TAE9UjC0xxc
+ https://www.youtube.com/watch?v=tC2emd5d8S8
+ https://www.youtube.com/watch?v=i0K2Y_6JH0A
+ https://www.youtube.com/watch?v=A-r9bE1O4j0
+ https://www.youtube.com/watch?v=Cnu_XeEbBBM
+ https://www.youtube.com/watch?v=kUSV4bClrF4
+ https://www.youtube.com/watch?v=HZueN5DKn74
+ https://www.youtube.com/watch?v=wP0ElWSKUME
+ https://www.youtube.com/watch?v=2IZlazFu3gU
+
+################ below are other importants things we should know about alfresco admin ##################
+
+ http://docs.alfresco.com/community5.0/concepts/FSTR-intro.html
+ http://docs.alfresco.com/community5.0/concepts/Bulk-Import-Tool.html
+ http://docs.alfresco.com/community5.0/concepts/manage-cs-home.html
+ http://docs.alfresco.com/community5.0/concepts/ch-backup-restore.html
+ http://docs.alfresco.com/community5.0/concepts/admintools-replication-config.html
+ http://docs.alfresco.com/community5.0/concepts/audit-intro.html
+ https://www.youtube.com/watch?v=A-r9bE1O4j0
+ https://www.youtube.com/watch?v=Cnu_XeEbBBM
+ https://www.youtube.com/watch?v=HZueN5DKn74
+
+--------------------------------------------------------------------------------------------------------------------------
+
+java installation
+
+http://www.anotherlan.com/install-oracle-java-on-your-ubuntu-12-04-with-minimal-fuss
+
+example:
+JDK 1.7u67 >>>>>>>>>>>
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+
+tar xzvf jdk-7u67-linux-x64.tar.gz
+---------------------------------------------------------------------------------------------------------------------------
+
+alfresco concept > how to install and configure
+
+http://docs.alfresco.com/5.1/concepts/install-singleinstance.html
+
+...................................................
+
+alfresco5.1 installation from bin file >>>>>>>
+wget https://sourceforge.net/projects/alfresco/files/alfresco-community-installer-201605-linux-x64.bin
+chmod 777 alfresco-community-installer-201605-linux-x64.bin
+./alfresco-community-installer-201605-linux-x64.bin
+
+..................................................
+
+auto installation needed for dockerfile
+
+links: 
+http://docs.alfresco.com/5.1/concepts/silent-alf-install.html
+http://richard.esplins.org/siwi/2011/01/12/automating-new-alfresco-installers/
+----------------------------------------------------------------------------------------------------------------------------
+
+LINKS:::::::::::
+ALFRESCO CONFIGURATION
+
+http://docs.alfresco.com/4.0/concepts/ch-configuration.html
+http://fcorti.com/2014/10/13/how-to-install-alfresco-5-0-ubuntu-14-04-lts/
+http://www.linuxmissive.com/2015/10/install-alfresco-on-ubuntu-1404-lts.html
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+alfresco clustering
+
+1) make sure that nfs share point reachable
+2) run docker-container with --privileged for mounting nfs
+3) change root directory option in option-file which used in auto-installation of alfresco (prifix option in option-file)
+4) change the share point and mount path in dockerfile
+5) give same database path & all db info in all alfresco server ( in option-file ) 
+
+
+------------------------------------------------------------------------------------------------------------------------------
+git 
+(alfresco with clustering)
+https://github.com/akhilrajmailbox/alfresco-5.1.git
+(alfresco with single tenent)
+https://github.com/akhilrajmailbox/alfresco-5.1-single.git
+
+three branches
+1) files
+2) master
+3) alfresco
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+error and drawbacks of alfresco
+
+#user with "@" in cannt be able to login in multi-tenent
+https://issues.alfresco.com/jira/browse/MNT-15517
+
+
+#ldap configuration in multi tenent
+https://issues.alfresco.com/jira/browse/MNT-4088
+
+

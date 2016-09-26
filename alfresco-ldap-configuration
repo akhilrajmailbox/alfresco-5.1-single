@@ -1,0 +1,216 @@
+##################################################################################################
+##########################  ldap-authentication.properties  ######################################
+##################################################################################################
+#path to create the ldap-file
+#/opt/alfresco-community/tomcat/shared/classes/alfresco/extension/subsystems/Authentication/ldap/ldap1/ldap-authentication.properties
+#use this link for detailed info
+#https://community.alfresco.com/thread/184630-ldap-with-multiple-domain
+##################################################################################################
+
+
+
+# This flag enables use of this LDAP subsystem for authentication. It may be
+# that this subsytem should only be used for synchronization, in which case
+# this flag should be set to false.
+ldap.authentication.active=true
+
+
+
+# This properties file brings together the common options for LDAP authentication rather than editing the bean definitions
+ldap.authentication.allowGuestLogin=true
+
+
+
+#make it empty so that all ldap user will queried
+ldap.authentication.userNameFormat=
+
+
+
+# The LDAP context factory to use
+ldap.authentication.java.naming.factory.initial=com.sun.jndi.ldap.LdapCtxFactory
+
+
+
+# The URL to connect to the LDAP server 
+ldap.authentication.java.naming.provider.url=ldap://192.168.1.234:389
+
+
+
+# The authentication mechanism to use
+ldap.authentication.java.naming.security.authentication=simple
+
+
+
+# Escape commas entered by the user at bind time
+# Useful when using simple authentication and the CN is part of the DN and contains commas
+ldap.authentication.escapeCommasInBind=false
+
+
+
+# Escape commas entered by the user when setting the authenticated user
+# Useful when using simple authentication and the CN is part of the DN and contains commas, and the escaped \, is
+# pulled in as part of an LDAP sync
+# If this option is set to true it will break the default home folder provider as space names can not contain \
+ldap.authentication.escapeCommasInUid=false
+
+
+
+#for making a particular user as admin
+ldap.authentication.defaultAdministratorUserNames=admin,user4
+ldap.authentication.authenticateFTP=true
+
+
+
+# This flag enables use of this LDAP subsystem for user and group
+# synchronization. It may be that this subsytem should only be used for
+# authentication, in which case this flag should be set to false.
+ldap.synchronization.active=true
+
+
+
+# The default principal to use (only used for LDAP sync)
+ldap.synchronization.java.naming.security.authentication=simple
+ldap.synchronization.java.naming.security.principal=cn\=admin,dc\=biz,dc\=com
+
+
+
+# The password for the default principal (only used for LDAP sync)
+ldap.synchronization.java.naming.security.credentials=appoozz18
+
+
+
+# If positive, this property indicates that RFC 2696 paged results should be
+# used to split query results into batches of the specified size. This
+# overcomes any size limits imposed by the LDAP server.
+ldap.synchronization.queryBatchSize=1000
+
+
+
+# If positive, this property indicates that range retrieval should be used to fetch
+# multi-valued attributes (such as member) in batches of the specified size.
+# Overcomes any size limits imposed by Active Directory.  
+ldap.synchronization.attributeBatchSize=1000
+
+
+
+# The query to select all objects that represent the groups to import.
+#eg : ldap.synchronisation.groupQuery=(objectclass=zimbraDistributionList)(zimbraMailStatus=enabled)
+ldap.synchronization.groupQuery=(objectclass\=groupOfUniqueNames)
+
+
+
+# The query to select objects that represent the groups to import that have changed since a certain time.
+ldap.synchronization.groupDifferentialQuery=(&(objectclass\=groupOfUniqueNames)(!(modifyTimestamp<\={0})))
+
+
+
+# The query to select all objects that represent the users to import.
+#eg : ldap.synchronization.personQuery=(&(objectClass=organizationalPerson)(zimbraMailStatus=enabled))
+ldap.synchronization.personQuery=(objectclass\=inetOrgPerson)
+
+
+
+# The query to select objects that represent the users to import that have changed since a certain time.
+ldap.synchronization.personDifferentialQuery=(&(objectclass\=inetOrgPerson)(!(modifyTimestamp<\={0})))
+
+
+
+# The group search base restricts the LDAP group query to a sub section of tree on the LDAP server.
+ldap.synchronization.groupSearchBase=dc\=biz,dc\=com
+
+
+
+# The user search base restricts the LDAP user query to a sub section of tree on the LDAP server.
+ldap.synchronization.userSearchBase=dc\=biz,dc\=com
+
+
+
+# The name of the operational attribute recording the last update time for a group or user.
+ldap.synchronization.modifyTimestampAttributeName=modifyTimestamp
+
+
+
+# The timestamp format. Unfortunately, this varies between directory servers.
+ldap.synchronization.timestampFormat=yyyyMMddHHmmss'Z'
+
+
+
+#for login with particular atrribute of ldap, here example=mail (cannt login as user id)
+ldap.synchronization.userIdAttributeName=mail
+#ldap.synchronization.userIdAttributeName=uid
+
+
+
+# The attribute on person objects in LDAP to map to the first name property in Alfresco
+ldap.synchronization.userFirstNameAttributeName=givenName
+
+
+
+# The attribute on person objects in LDAP to map to the last name property in Alfresco
+ldap.synchronization.userLastNameAttributeName=sn
+
+
+
+# The attribute on person objects in LDAP to map to the email property in Alfresco
+ldap.synchronization.userEmailAttributeName=mail
+
+
+
+# The attribute on person objects in LDAP to map to the organizational id  property in Alfresco
+ldap.synchronization.userOrganizationalIdAttributeName=o
+
+
+
+# The default home folder provider to use for people created via LDAP import
+ldap.synchronization.defaultHomeFolderProvider=largeHomeFolderProvider
+
+
+
+# The attribute on LDAP group objects to map to the authority name property in Alfresco
+ldap.synchronization.groupIdAttributeName=cn
+
+
+
+# The attribute on LDAP group objects to map to the authority display name property in Alfresco
+ldap.synchronization.groupDisplayNameAttributeName=description
+
+
+
+# The group type in LDAP
+#eg : ldap.synchronisation.groupType=zimbraDistributionList
+ldap.synchronization.groupType=groupOfUniqueNames
+
+
+
+# The person type in LDAP
+#eg : ldap.synchronisation.personType=organizationalPerson
+ldap.synchronization.personType=inetOrgPerson
+
+
+
+# The attribute in LDAP on group objects that defines the DN for its members
+#eg : ldap.synchronisation.groupMemberAttributeName=zimbraMailForwardingAddress
+ldap.synchronization.groupMemberAttributeName=uniqueMember
+
+
+
+# If true progress estimation is enabled. When enabled, the user query has to be run twice in order to count entries.
+ldap.synchronization.enableProgressEstimation=true
+ldap.authentication.java.naming.read.timeout=0
+
+
+
+
+##################################################################################################
+############################  alfresco-global.properties  ########################################
+##################################################################################################
+
+authentication.chain=alfrescoNtlm1:alfrescoNtlm,ldap1:ldap
+
+#ldap auth only can done with following (no alfrsco admin can login)
+#authentication.chain=ldap1:ldap
+
+synchronization.synchronizeChangesOnly=true
+synchronization.syncWhenMissingPeopleLogIn=true
+synchronization.syncOnStartup=true
+
