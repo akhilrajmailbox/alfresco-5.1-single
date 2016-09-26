@@ -1,0 +1,13 @@
+
+
+#########################################
+dir.indexes=/opt/alfresco-community/nfs/alf_data/lucene-indexes 
+dir.indexes.backup=/opt/alfresco-community/nfs/alf_data/backup-lucene-indexes 
+dir.indexes.lock=/opt/alfresco-community/nfs/alf_data/locks 
+hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect 
+
+################################################ 
+
+alfresco.cluster.name=home-test-cluster 
+alfresco.tcp.initial_hosts=172.17.0.2[7800],172.17.0.3[7800] 
+alfresco.jgroups.defaultProtocol=TCP
