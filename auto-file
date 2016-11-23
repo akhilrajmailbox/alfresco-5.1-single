@@ -7,10 +7,10 @@ disable-components=postgres
 # Use JDBC settings for an existing database
 #for mysql
 
-jdbc_url=jdbc:mysql://192.168.1.63:3306/odoo?useUnicode=yes&characterEncoding=UTF-8
+jdbc_url=jdbc:mysql://192.168.1.63:3306/al?useUnicode=yes&characterEncoding=UTF-8
 jdbc_driver=org.gjt.mm.mysql.Driver
-jdbc_database=odoo
-jdbc_username=odoo
+jdbc_database=al
+jdbc_username=al
 jdbc_password=root
 
 
